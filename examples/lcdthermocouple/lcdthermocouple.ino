@@ -30,31 +30,31 @@ LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
 void setup() {
   Serial.begin(9600);
   // set up the LCD's number of columns and rows: 
-  lcd.begin(16, 2);
+  //lcd.begin(16, 2);
   
-  lcd.print("MAX31855 test");
+  //lcd.print("MAX31855 test");
   // wait for MAX chip to stabilize
   delay(500);
 }
 
 void loop() {
   // basic readout test, just print the current temp
-   lcd.setCursor(0, 0);
-   lcd.print("Int. Temp = ");
-   lcd.println(thermocouple.readInternal());
-   lcd.print("  "); 
+   //lcd.setCursor(0, 0);
+   Serial.print("Int. Temp = ");
+   Serial.println(thermocouple.readInternal());
+   Serial.print("  "); 
      
    double c = thermocouple.readCelsius();
-   lcd.setCursor(0, 1);
+   //Serial.setCursor(0, 1);
    if (isnan(c)) 
    {
-     lcd.print("T/C Problem");
+     Serial.print("T/C Problem");
    } 
    else 
    {
-     lcd.print("C = "); 
-     lcd.print(c);
-     lcd.print("  "); 
+     Serial.print("C = "); 
+     Serial.print(c);
+     Serial.print("  "); 
    }
  
    delay(1000);
